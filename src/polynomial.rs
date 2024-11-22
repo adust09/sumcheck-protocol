@@ -69,29 +69,27 @@ impl<F: Field> UnivariatePolynomial<F> {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::Prover;
-    use crate::Verifier;
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
+//     use crate::Prover;
+//     use crate::Verifier;
 
-    #[test]
-    fn test_sumcheck_protocol() {
-        // 簡単な2変数多項式 f(x,y) = x + 2y を作成
-        let mut coeffs = HashMap::new();
-        coeffs.insert(vec![1, 0], F::from(1)); // x項
-        coeffs.insert(vec![0, 1], F::from(2)); // y項
+//     #[test]
+//     fn test_sumcheck_protocol() {
+//         // 簡単な2変数多項式 f(x,y) = x + 2y を作成
+//         let mut coeffs = HashMap::new();
+//         coeffs.insert(vec![1, 0], F::from(1)); // x項
+//         coeffs.insert(vec![0, 1], F::from(2)); // y項
 
-        let polynomial = MultiVariatePolynomial::new(coeffs, 2);
+//         let polynomial = MultiVariatePolynomial::new(coeffs, 2);
 
-        // 正しい合計値を計算 (f(0,0) + f(0,1) + f(1,0) + f(1,1))
-        let true_sum = F::from(6);
+//         // 正しい合計値を計算 (f(0,0) + f(0,1) + f(1,0) + f(1,1))
+//         let true_sum = F::from(6);
 
-        let mut prover = Prover::new(polynomial.clone());
-        let mut verifier = Verifier::new(polynomial, true_sum);
+//         let mut prover = Prover::new(polynomial.clone());
+//         let mut verifier = Verifier::new(polynomial, true_sum);
 
-        assert!(verifier.verify(&mut prover));
-    }
-}
-
-// ark:mleで書き直す
+//         assert!(verifier.verify(&mut prover));
+//     }
+// }

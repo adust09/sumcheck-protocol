@@ -1,5 +1,4 @@
 use crate::{polynomial::MultiVariatePolynomial, Prover};
-use ark_ff::Field;
 use ark_ff::PrimeField;
 
 pub struct Verifier<F: PrimeField> {

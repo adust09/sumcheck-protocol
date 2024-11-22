@@ -1,14 +1,14 @@
 use crate::polynomial::MultiVariatePolynomial;
 use crate::polynomial::UnivariatePolynomial;
-use ark_ff::Field;
+use ark_ff::PrimeField;
 
-pub struct Prover<F: Field> {
+pub struct Prover<F: PrimeField> {
     polynomial: MultiVariatePolynomial<F>,
     current_round: usize,
     values_so_far: Vec<F>,
 }
 
-impl<F: Field> Prover<F> {
+impl<F: PrimeField> Prover<F> {
     pub fn new(polynomial: MultiVariatePolynomial<F>) -> Self {
         Self {
             polynomial,
